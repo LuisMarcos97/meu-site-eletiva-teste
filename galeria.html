@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- A tag DOCTYPE indica ao navegador que estamos utilizando o padrão moderno do HTML5 -->
+<html lang="pt-BR">
+<!-- A tag <html> engloba todo o documento. O atributo lang="pt-BR" define o idioma como Português do Brasil -->
+
+<head>
+    <!-- A tag <head> armazena configurações técnicas, metadados e estilos que dão identidade visual à página -->
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres UTF-8 para garantir que acentos e símbolos apareçam corretamente -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Torna o site responsivo, ajustando o layout para telas de celulares, tablets e computadores -->
+    <title>Galeria e Mídias - Handebol 7º Ano</title>
+    <!-- Define o título que aparece na aba do navegador -->
+
+    <style>
+        /* Reset global para padronizar margens, espaçamentos e o cálculo de largura (box-sizing) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Estilização geral do corpo da página */
+        body {
+            background-color: #f4f7f6;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* 1. Menu de Navegação (nav) fixo no topo com links de alternância */
+        nav {
+            background-color: #1a252f;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #2980b9;
+        }
+
+        /* 2. Cabeçalho Principal (header) */
+        header {
+            background: linear-gradient(135deg, #2980b9, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Container principal para estruturar as seções de mídia */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        section {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+
+        /* 3. Seção de Fotos - Organizada em Grid Responsivo para exatamente 15 itens */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* A tag <figure> agrupa a imagem e sua respectiva legenda (<figcaption>) semanticamente */
+        .foto-card {
+            background: #fdfdfd;
+            border: 1px solid #e1e8ed;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease;
+        }
+
+        .foto-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* A tag <img> exibe a imagem. O atributo width/height e object-fit garantem layout limpo */
+        .foto-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background-color: #ddd; /* Cor de fundo caso a imagem demore a carregar */
+        }
+
+        /* A tag <figcaption> fornece uma legenda clara associada à imagem */
+        .foto-card figcaption {
+            padding: 0.8rem;
+            font-size: 0.85rem;
+            color: #555;
+            text-align: justify;
+            background-color: #fff;
+        }
+
+        /* 4. Seção de Vídeos - Grade para acomodar os 3 exemplos de vídeos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: #fdfdfd;
+            border: 1px solid #e1e8ed;
+            border-radius: 6px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .video-card h3 {
+            font-size: 1.1rem;
+            color: #2980b9;
+        }
+
+        /* Estilização para tags de vídeo locais e iframes do YouTube garantindo responsividade */
+        .video-card video, 
+        .video-card iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 4px;
+            border: none;
+            background-color: #000;
+        }
+
+        .video-card p {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: justify;
+        }
+
+        /* 5. Rodapé (footer) */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Menu de Navegação (nav) permitindo alternar entre index.html e galeria.html -->
+    <nav>
+        <div class="logo">Eletiva Handebol</div>
+        <ul>
+            <li><a href="index.html">Página Principal</a></li>
+            <li><a href="galeria.html" class="active">Galeria e Mídias</a></li>
+        </ul>
+    </nav>
+
+    <!-- 2. Cabeçalho da Página de Galeria -->
+    <header>
+        <h1>Galeria Multimídia do Handebol - 7º Ano</h1>
+        <p>Explore os registros visuais e audiovisuais dos nossos treinos, estratégias em quadra e momentos marcantes da eletiva.</p>
+    </header>
+
+    <!-- Conteúdo Principal da Galeria -->
+    <main>
+
+        <!-- 3. Seção de Fotos contendo EXATAMENTE 15 ITENS com tags <figure>, <img> e <figcaption> -->
+        <section>
+            <h2>Galeria de Fotos (15 Momentos)</h2>
+            <div class="galeria-grid">
+
+                <!-- Item 1 -->
+                <figure class="foto-card">
+                    <img src="foto1.jpg" alt="Estudantes aquecendo antes da partida de handebol">
+                    <figcaption>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</figcaption>
+                </figure>
+
+                <!-- Item 2 -->
+                <figure class="foto-card">
+                    <img src="foto2.jpg" alt="Demonstração de passe de ombro na quadra escolar">
+                    <figcaption>Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</figcaption>
+                </figure>
+
+                <!-- Item 3 -->
+                <figure class="foto-card">
+                    <img src="foto3.jpg" alt="Posicionamento tático da defesa em linha de 6 metros">
+                    <figcaption>Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</figcaption>
+                </figure>
+
+                <!-- Item 4 -->
+                <figure class="foto-card">
+                    <img src="foto4.jpg" alt="Exercício prático de drible e progressão rápida">
+                    <figcaption>Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora.</figcaption>
+                </figure>
+
+                <!-- Item 5 -->
+                <figure class="foto-card">
+                    <img src="foto5.jpg" alt="Goleiro realizando defesa defensiva importante">
+                    <figcaption>Per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.</figcaption>
+                </figure>
+
+                <!-- Item 6 -->
+                <figure class="foto-card">
+                    <img src="foto6.jpg" alt="Alunos organizando os cones para treinamento de agilidade">
+                    <figcaption>Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam.</figcaption>
+                </figure>
+
+                <!-- Item 7 -->
+                <figure class="foto-card">
+                    <img src="foto7.jpg" alt="Orientação técnica do professor com a equipe reunida">
+                    <figcaption>In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem.</figcaption>
+                </figure>
+
+                <!-- Item 8 -->
+                <figure class="foto-card">
+                    <img src="foto8.jpg" alt="Arremesso em suspensão realizado por aluno destaque">
+                    <figcaption>Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel.</figcaption>
+                </figure>
+
+                <!-- Item 9 -->
+                <figure class="foto-card">
+                    <img src="foto9.jpg" alt="Comemoração de gol coletivo da turma do sétimo ano">
+                    <figcaption>Cras luctus. Curabitur vitae velit quis tortor consectetur ornare. Etiam rhoncus.</figcaption>
+                </figure>
+
+                <!-- Item 10 -->
+                <figure class="foto-card">
+                    <img src="foto10.jpg" alt="Prática de troca de passes em duplas rápidas">
+                    <figcaption>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero.</figcaption>
+                </figure>
+
+                <!-- Item 11 -->
+                <figure class="foto-card">
+                    <img src="foto11.jpg" alt="Alinhamento e cumprimento esportivo fair play entre equipes">
+                    <figcaption>Sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel.</figcaption>
+                </figure>
+
+                <!-- Item 12 -->
+                <figure class="foto-card">
+                    <img src="foto12.jpg" alt="Treinamento focado no bloqueio defensivo coletivo">
+                    <figcaption>Lucus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.</figcaption>
+                </figure>
+
+                <!-- Item 13 -->
+                <figure class="foto-card">
+                    <img src="foto13.jpg" alt="Estudantes hidratando-se durante a pausa do treino">
+                    <figcaption>Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.</figcaption>
+                </figure>
+
+                <!-- Item 14 -->
+                <figure class="foto-card">
+                    <img src="foto14.jpg" alt="Simulação de contra-ataque rápido em superioridade numérica">
+                    <figcaption>Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris.</figcaption>
+                </figure>
+
+                <!-- Item 15 -->
+                <figure class="foto-card">
+                    <img src="foto15.jpg" alt="Foto oficial da turma participante da eletiva de handebol">
+                    <figcaption>Integer vitae justo eget magna fermentum iaculis. Proin viverra ligula sit amet.</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+        <!-- 4. Seção de Vídeos - Combinando exemplos locais (<video>) e incorporados (<iframe>) -->
+        <section>
+            <h2>Vídeos e Demonstrações Práticas</h2>
+            <div class="video-grid">
+
+                <!-- Vídeo 1: Exemplo com tag <video> local para arquivo mp4 -->
+                <div class="video-card">
+                    <h3>1. Melhores Momentos do Treino</h3>
+                    <!-- A tag <video> reproduz arquivos locais. Os atributos controls, autoplay e muted controlam a reprodução -->
+                    <video controls muted>
+                        <source src="video1.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo. Atualize seu navegador para assistir.
+                    </video>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                </div>
+
+                <!-- Vídeo 2: Exemplo com tag <iframe> incorporada do YouTube -->
+                <!-- Vídeo 2: Exemplo de vídeo local salvo na mesma pasta -->
+<div class="video-card">
+    <h3>2. Análise Tática: O Contra-Ataque</h3>
+    <!-- A tag <video> reproduz o arquivo mp4 que está na mesma pasta -->
+    <video controls muted>
+        <source src="video2.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo. Atualize seu navegador para assistir.
+    </video>
+    <p>Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos.</p>
+</div>
+
+                <!-- Vídeo 3: Exemplo com tag <video> local para arquivo mp4 -->
+                <div class="video-card">
+                    <h3>3. Bastidores e Preparação da Turma</h3>
+                    <video controls muted>
+                        <source src="video3.mp4" type="video/mp4">
+                        Seu navegador não suporta a tag de vídeo. Atualize seu navegador para assistir.
+                    </video>
+                    <p>Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 5. Rodapé (footer) com créditos da turma -->
+    <footer>
+        <p>&copy; 2026 - Desenvolvido com dedicação pela Turma do 7º Ano | Galeria de Mídias de Handebol Escolar.</p>
+    </footer>
+
+</body>
+
+</html>

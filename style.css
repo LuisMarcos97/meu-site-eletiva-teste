@@ -1,0 +1,377 @@
+/* ========================================================================== */
+/* ESTILIZAÇÃO CSS AVANÇADA - SITE HANDEBOL NA ESCOLA (7º ANO)                */
+/* Mentor de Desenvolvimento Web: Design Moderno, Limpo e Profissional        */
+/* ========================================================================== */
+
+/* Reset Global: Padroniza margens e preenchimentos em todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box faz com que bordas e paddings fiquem dentro da largura total, evitando que elementos estourem a tela */
+    box-sizing: border-box;
+    /* Define uma família de fontes moderna e limpa para facilitar a leitura dos estudantes */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Configuração do Corpo da Página (body) */
+body {
+    /* Paleta de Cores: Fundo suave e elegante (#edf2f7) */
+    background-color: #edf2f7;
+    /* Cor de texto padrão em tom escuro para excelente contraste e legibilidade */
+    color: #1a202c;
+    /* Espaçamento entrelinhas (line-height) para deixar o texto arejado */
+    line-height: 1.7;
+    /* Ativa a rolagem suave para links internos da página */
+    scroll-behavior: smooth;
+}
+
+/* ========================================================================== */
+/* 2. MENU DE NAVEGAÇÃO MODERNO (nav)                                         */
+/* ========================================================================== */
+nav {
+    /* Paleta de Cores: Azul escuro corporativo/esportivo (#0f2537) */
+    background-color: #0f2537;
+    padding: 1.2rem 2.5rem;
+    /* Flexbox: Organiza o logotipo e os links lado a lado de forma simétrica */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Sombra suave abaixo do menu para dar sensação de profundidade */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Posicionamento fixo no topo da tela para acompanhar a rolagem do usuário */
+    position: sticky;
+    top: 0;
+    /* z-index garante que o menu fique sempre acima dos outros elementos da página */
+    z-index: 1000;
+}
+
+nav .logo {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+nav ul {
+    /* Remove as bolinhas padrão da lista (ul) */
+    list-style: none;
+    display: flex;
+    /* gap cria um espaçamento seguro e moderno entre os itens do menu sem precisar de margens complexas */
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: #cbd5e0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+    /* Arredondamento suave nas bordas dos botões do menu */
+    border-radius: 6px;
+    /* transition define o tempo de animação suave para o efeito hover */
+    transition: all 0.3s ease;
+}
+
+/* Efeito Hover e Estado Ativo: Mudar cor e aplicar o laranja vibrante do handebol (#ff5722) */
+nav ul li a:hover, 
+nav ul li a.active {
+    background-color: #ff5722;
+    color: #ffffff;
+    /* Pequena elevação visual no hover */
+    transform: translateY(-2px);
+}
+
+/* ========================================================================== */
+/* CABEÇALHO PRINCIPAL (header)                                               */
+/* ========================================================================== */
+header {
+    /* Gradiente moderno unindo o azul escuro esportivo ao azul profundo */
+    background: linear-gradient(135deg, #0f2537, #1b365d);
+    color: #ffffff;
+    text-align: center;
+    padding: 4.5rem 2rem;
+    border-bottom: 5px solid #ff5722;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    /* Sombra no texto para destacar o título principal com elegância */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+header p {
+    font-size: 1.15rem;
+    max-width: 750px;
+    margin: 0 auto;
+    color: #e2e8f0;
+    font-style: italic;
+}
+
+/* ========================================================================== */
+/* CONTAINER PRINCIPAL E SEÇÕES                                               */
+/* ========================================================================== */
+main {
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+    /* Flexbox vertical para organizar todas as seções com espaçamento uniforme */
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+section {
+    /* Blocos de conteúdo brancos puros com bordas arredondadas e sombras elegantes */
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+section h2 {
+    color: #0f2537;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    /* Linha decorativa inferior utilizando o laranja vibrante */
+    border-bottom: 3px solid #ff5722;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+}
+
+/* ========================================================================== */
+/* 3. LAYOUT FLEXBOX AVANÇADO E GRADES RESPONSIVAS                             */
+/* ========================================================================== */
+
+/* Seção de História: 2 colunas simétricas com Flexbox avançado */
+.grid-duas-colunas {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.coluna {
+    /* flex: 1 faz com que ambas as colunas dividam o espaço igualmente de forma flexível */
+    flex: 1;
+    background-color: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #0f2537;
+}
+
+.coluna h3 {
+    color: #ff5722;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.coluna p {
+    color: #4a5568;
+    text-align: justify;
+}
+
+/* ========================================================================== */
+/* 4. DESTAQUE ESPECIAL PARA O CONVITE DE DEZEMBRRO                           */
+/* ========================================================================== */
+.convite-culminancia {
+    /* Fundo sutil combinando com a identidade visual */
+    background: linear-gradient(135deg, #fffaf0, #fff5eb);
+    /* Borda lateral grossa em laranja vibrante (#ff5722) para total destaque visual */
+    border-left: 8px solid #ff5722;
+    border-top: 1px solid #feebc8;
+    border-right: 1px solid #feebc8;
+    border-bottom: 1px solid #feebc8;
+}
+
+.convite-culminancia h2 {
+    color: #c05621;
+    border-bottom-color: #fbd38d;
+}
+
+.detalhes-evento {
+    background: rgba(255, 87, 34, 0.08);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    /* Grid responsiva interna para organizar data, hora e local perfeitamente */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    border: 1px dashed #ff5722;
+}
+
+.detalhes-evento p {
+    font-weight: 600;
+    color: #7b341e;
+}
+
+/* ========================================================================== */
+/* GALERIA DE FOTOS (15 ITENS) E VÍDEOS                                       */
+/* ========================================================================== */
+.galeria-grid {
+    /* Grid responsiva automatizada para organizar perfeitamente as 15 fotos lado a lado */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.5rem;
+}
+
+.foto-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Transição suave para o efeito de zoom e elevação */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 5. Efeito Visual Interativo: Zoom suave nas imagens da galeria e elevação do card */
+.foto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.foto-card img {
+    width: 100%;
+    height: 160px;
+    /* object-fit: cover garante que a imagem preencha o espaço perfeitamente sem distorcer proporções */
+    object-fit: cover;
+    background-color: #cbd5e0;
+    transition: transform 0.4s ease;
+}
+
+.foto-card:hover img {
+    /* Zoom suave na imagem ao passar o mouse pelo card */
+    transform: scale(1.05);
+}
+
+.foto-card figcaption {
+    padding: 0.9rem;
+    font-size: 0.85rem;
+    color: #4a5568;
+    text-align: justify;
+    background-color: #ffffff;
+}
+
+/* Grid de Vídeos */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 2rem;
+}
+
+.video-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-4px);
+}
+
+.video-card h3 {
+    font-size: 1.15rem;
+    color: #0f2537;
+}
+
+.video-card video, 
+.video-card iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 6px;
+    border: none;
+    background-color: #000000;
+}
+
+.video-card p {
+    font-size: 0.9rem;
+    color: #4a5568;
+    text-align: justify;
+}
+
+/* ========================================================================== */
+/* ELEMENTO INTERATIVO AVANÇADO (<details> / <summary>)                      */
+/* ========================================================================== */
+details {
+    background: #f0f4f8;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    padding: 1.2rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+details[open] {
+    background: #e2e8f0;
+    border-color: #ff5722;
+}
+
+summary {
+    font-weight: 700;
+    color: #0f2537;
+    cursor: pointer;
+    font-size: 1.1rem;
+    outline: none;
+    /* Efeito de clique perceptível com transição */
+    transition: color 0.2s ease;
+}
+
+summary:hover {
+    color: #ff5722;
+}
+
+details p {
+    margin-top: 1rem;
+    color: #2d3748;
+    text-align: justify;
+    font-size: 0.98rem;
+}
+
+/* ========================================================================== */
+/* RODAPÉ (footer)                                                            */
+/* ========================================================================== */
+footer {
+    background-color: #0f2537;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    font-size: 0.95rem;
+    border-top: 4px solid #ff5722;
+}
+
+/* ========================================================================== */
+/* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS (TABLETS E CELULARES)              */
+/* ========================================================================== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    header {
+        padding: 3rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2.1rem;
+    }
+
+    .grid-duas-colunas {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!-- A tag DOCTYPE informa ao navegador que este documento utiliza a versão mais moderna do HTML (HTML5) -->
+<html lang="pt-BR">
+<!-- A tag <html> envolve todo o site. O atributo lang="pt-BR" define o idioma principal como Português do Brasil -->
+
+<head>
+    <!-- A tag <head> armazena metadados, configurações técnicas e estilos que não aparecem diretamente na página -->
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8, garantindo que acentos e símbolos funcionem perfeitamente -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Garante a responsabilidade do site, adaptando a escala de visualização para celulares, tablets e computadores -->
+    <title>Handebol na Escola - Eletiva 7º Ano</title>
+    <!-- Define o título que aparece na aba do navegador -->
+
+    <style>
+        /* Reset global para padronizar margens, preenchimentos e cálculo de largura (box-sizing) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Estilização geral do corpo da página */
+        body {
+            background-color: #f4f7f6;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* 1. Menu de Navegação (nav) */
+        nav {
+            background-color: #1a252f;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #2980b9;
+        }
+
+        /* 2. Cabeçalho Principal (header) */
+        header {
+            background: linear-gradient(135deg, #2980b9, #2c3e50);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Container principal para organizar as seções do site */
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        section {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+
+        /* 3. Seção de História do Handebol em 2 Colunas */
+        .grid-duas-colunas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-duas-colunas {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .coluna h3 {
+            color: #2980b9;
+            margin-bottom: 0.8rem;
+        }
+
+        .coluna p {
+            color: #555;
+            text-align: justify;
+        }
+
+        /* 4. Seção de Convite Especial para a Culminância */
+        .convite-culminancia {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            border-left: 8px solid #d35400;
+        }
+
+        .convite-culminancia h2 {
+            color: white;
+            border-bottom-color: #f1c40f;
+        }
+
+        .detalhes-evento {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.2rem;
+            border-radius: 6px;
+            margin: 1.2rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .detalhes-evento p {
+            font-weight: 600;
+        }
+
+        /* 5. Elemento Interativo Avançado (<details> e <summary>) */
+        details {
+            background: #eaf2f8;
+            border: 1px solid #b9d7ea;
+            border-radius: 6px;
+            padding: 1rem;
+            transition: background 0.3s;
+        }
+
+        details[open] {
+            background: #d4e6f1;
+        }
+
+        summary {
+            font-weight: bold;
+            color: #2980b9;
+            cursor: pointer;
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        details p {
+            margin-top: 1rem;
+            color: #333;
+            text-align: justify;
+        }
+
+        /* 6. Rodapé (footer) */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Menu de Navegação (nav) com links para alternar entre as páginas do projeto -->
+    <nav>
+        <div class="logo">Eletiva Handebol</div>
+        <ul>
+            <li><a href="index.html" class="active">Página Principal</a></li>
+            <li><a href="galeria.html">Galeria e Mídias</a></li>
+        </ul>
+    </nav>
+
+    <!-- 2. Cabeçalho Principal (header) contendo o título e a reflexão madura sobre a eletiva -->
+    <header>
+        <h1>Handebol na Escola: Paixão e Superação</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Participar desta eletiva transformou nossa visão sobre cooperação, disciplina coletiva e estratégia esportiva, mostrando que o esporte vai muito além da quadra.</p>
+    </header>
+
+    <!-- Conteúdo central estruturado do site -->
+    <main>
+
+        <!-- 3. Seção de História do Handebol dividida em 2 colunas -->
+        <section>
+            <h2>História e Evolução do Handebol</h2>
+            <div class="grid-duas-colunas">
+                <div class="coluna">
+                    <h3>A Origem do Esporte</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa.</p>
+                </div>
+                <div class="coluna">
+                    <h3>A Chegada às Escolas</h3>
+                    <p>Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Seção de Convite Especial para a Culminância de Dezembro -->
+        <section class="convite-culminancia">
+            <h2>Convite Especial: Culminância de Dezembro</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convidamos todos os familiares e membros da comunidade escolar para prestigiarem o encerramento das atividades da nossa eletiva, onde demonstraremos as habilidades táticas e o espírito de equipe desenvolvidos ao longo do semestre.</p>
+            
+            <div class="detalhes-evento">
+                <p>🏫 Escola: [Nome da Escola]</p>
+                <p>📅 Data: [Data de Dezembro a Definir]</p>
+                <p>⏰ Horário: [Horário a Definir]</p>
+            </div>
+
+            <p>Contamos com a sua presença para celebrar esta grande conquista coletiva dos estudantes!</p>
+        </section>
+
+        <!-- 5. Elemento Interativo Avançado revelando uma curiosidade tática ao clique -->
+        <section>
+            <h2>Curiosidade Tática do Handebol</h2>
+            <p>Clique na pergunta abaixo para descobrir um segredo tático fundamental utilizado pelas equipes profissionais:</p>
+            <br>
+            <details>
+                <summary>💡 O que é a jogada de "Cruzamento" e qual a sua principal função tática?</summary>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. O cruzamento ocorre quando dois jogadores de armação correm em direções opostas cruzando seus caminhos em velocidade. Essa movimentação gera dúvida imediata na defesa adversária (marcação individual), criando brechas e desequilíbrios para infiltrações ou arremessos livres na linha dos 9 metros.</p>
+            </details>
+        </section>
+
+    </main>
+
+    <!-- 6. Rodapé (footer) com os créditos da turma responsável -->
+    <footer>
+        <p>&copy; 2026 - Desenvolvido com dedicação pela Turma do 7º Ano | Eletiva de Handebol Escolar.</p>
+    </footer>
+
+</body>
+
+</html>
